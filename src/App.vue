@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-blue-500 text-white p-4 rounded">
-    Hello, Tailwind CSS with Vue 3!
+  <div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -18,6 +18,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
