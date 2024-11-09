@@ -1,9 +1,16 @@
-import { createApp } from "vue";
+import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import "./assets/tailwind.css";
+import VTooltip from "v-tooltip";
 
-const app = createApp(App);
-app.use(router);
+Vue.use(VTooltip);
 
-app.mount("#app");
+// Disable production tip
+Vue.config.productionTip = false;
+
+// Create Vue instance
+new Vue({
+  router,
+  render: (h) => h(App),
+}).$mount("#app");

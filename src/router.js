@@ -1,6 +1,10 @@
-import { createRouter, createWebHistory } from "vue-router";
+import Vue from "vue";
+import VueRouter from "vue-router";
 import UserRegister from "./views/UserRegister.vue";
 import UserPreferences from "./views/UserPreferences.vue";
+import UserSuggestions from "./views/UserSuggestions.vue";
+
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -13,10 +17,15 @@ const routes = [
     name: "UserPreferences",
     component: UserPreferences,
   },
+  {
+    path: "/suggestions",
+    name: "UserSuggestions",
+    component: UserSuggestions,
+  },
 ];
 
-const router = createRouter({
-  history: createWebHistory(),
+const router = new VueRouter({
+  mode: "history",
   routes,
 });
 

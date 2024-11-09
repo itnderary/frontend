@@ -1,10 +1,7 @@
 <template>
   <div class="h-full preferencesPage">
-    <preference-swiper
-      :preferences="preferences"
-      :textOverImages="true"
-    ></preference-swiper>
-    <navbar :hideSearch="true"></navbar>
+    <preference-swiper :preferences="preferences"></preference-swiper>
+    <navbar @applySearch="applySearch"></navbar>
   </div>
 </template>
 
@@ -26,11 +23,17 @@ export default {
           name: "Museums",
           image:
             "https://www.mqw.at/fileadmin/_processed_/b/3/csm_RodrigoBraga_Ausstellungsansicht_29baa32a2c.jpg",
+          description:
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+          tags: ["culture", "museum"],
         },
         {
           name: "Winter Sports",
           image:
             "https://www.skiweekends.com/assets/uploads/image_library/show/1664800087_schladming-ski-breaks.jpeg",
+          description:
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+          tags: ["sports"],
         },
         {
           name: "Idyllic Towns",
@@ -52,6 +55,15 @@ export default {
             "http://wevemadeahugemistake.com/wp-content/uploads/2015/06/IMG_5661.jpg",
         },
       ];
+    },
+  },
+  methods: {
+    applySearch(searchValue = "") {
+      if (searchValue) {
+        //
+      } else {
+        //
+      }
     },
   },
 };
