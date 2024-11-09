@@ -1,7 +1,7 @@
 <template>
-  <div class="flex w-full justify-center">
-    <div class="border rounded-md w-1/2 mt-8 px-4 py-4 shadow bg-white">
-      <div class="mb-4">
+  <div class="flex w-full justify-center items-center min-h-screen">
+    <div class="border rounded-md w-full px-4 py-4 shadow bg-white">
+      <div class="mb-8">
         <h1 class="text-3xl font-extrabold">User Details</h1>
       </div>
       <form class="flex flex-col justify-center">
@@ -18,7 +18,7 @@
           <input type="text" class="block w-2/3 rounded-md border-0 bg-gray-50 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 text-md" :value="gender" id="gender" />
         </div>
         <div class="flex justify-end">
-          <button class="bg-blue-300 py-2 px-2 rounded-lg text-blue-900 font-medium hover:bg-blue-400 text-lg" @click="register">Register</button>
+          <button class="bg-blue-300 py-1 px-2 rounded-lg text-blue-900 font-medium hover:bg-blue-400 text-lg" @click="register">Register</button>
         </div>
       </form>
     </div>
