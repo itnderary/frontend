@@ -18,7 +18,7 @@
           <input type="text" class="block w-2/3 rounded-md border-0 bg-gray-50 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 text-md" :value="gender" id="gender" />
         </div>
         <div class="flex justify-end">
-          <button class="bg-blue-300 py-1 px-2 rounded-lg text-blue-900 font-medium hover:bg-blue-400 text-lg" @click="register">Register</button>
+          <button class="bg-blue-300 py-1 px-2 rounded-lg text-blue-900 font-semibold hover:bg-blue-400 text-lg w-full" @click="register">Register</button>
         </div>
       </form>
     </div>

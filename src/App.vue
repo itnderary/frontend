@@ -13,7 +13,7 @@ export default {
 
 <style>
 body {
-  @apply bg-neutral-100;
+  @apply bg-neutral-50;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
