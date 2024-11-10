@@ -1,24 +1,20 @@
-# itnderary
+# Itnderary Frontend
 
-## Project setup
-```
-npm install
-```
+`Itnderary frontend` is a web application that will recommend you interesting things to do when visiting Austria.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Developing
 
-### Compiles and minifies for production
-```
-npm run build
-```
+`Itnderary frontend` is a React app and you can start it as follows:
 
-### Lints and fixes files
-```
-npm run lint
-```
+1. `yarn install` will install all dependencies
+2. `yarn serve` will start the dev server with hot reloading enabled.
+3. Use your favourite IDE to contribute!
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Back-end
+
+To start the API server you can use its Docker image and expose it on port 3000.
+All `/api` requests will then be forwarded to it.
+
+## Contributing
+
+Please refer to our LICENSE and CONTRIBUTING.md for our guidelines.
