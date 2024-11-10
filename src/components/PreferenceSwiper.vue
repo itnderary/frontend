@@ -109,6 +109,7 @@ export default {
   },
   created() {
     this.activeIdx = this.preferences.length - 1;
+    console.log("asdf");
   },
   methods: {
     goToNext() {
