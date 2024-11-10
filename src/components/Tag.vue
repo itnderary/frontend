@@ -1,5 +1,5 @@
 <template>
-  <span :class="['badge bg-teal-700 text-white px-1 rounded-md']">
+  <span :class="['bg-teal-700 text-white px-1 rounded-md']">
     <slot>{{ text }}</slot>
   </span>
 </template>
@@ -15,7 +15,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.badge {
-}
-</style>
+<style scoped></style>

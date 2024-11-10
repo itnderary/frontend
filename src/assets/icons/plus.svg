@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>plus</title>
+    <g id="plus" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="direction-button-arrows" transform="translate(2.500000, 2.500000)" fill="#000000" fill-rule="nonzero">
+            <path d="M13,0 C13.2454599,0 13.4496084,0.176875161 13.4919443,0.410124368 L13.5,0.5 L13.5,26.5 C13.5,26.7761424 13.2761424,27 13,27 C12.7545401,27 12.5503916,26.8231248 12.5080557,26.5898756 L12.5,26.5 L12.5,0.5 C12.5,0.223857625 12.7238576,0 13,0 Z" id="Path"></path>
+            <path d="M26.5,12.5 C26.7761424,12.5 27,12.7238576 27,13 C27,13.2454599 26.8231248,13.4496084 26.5898756,13.4919443 L26.5,13.5 L0.5,13.5 C0.223857625,13.5 0,13.2761424 0,13 C0,12.7545401 0.176875161,12.5503916 0.410124368,12.5080557 L0.5,12.5 L26.5,12.5 Z" id="Path"></path>
+        </g>
+    </g>
+</svg>

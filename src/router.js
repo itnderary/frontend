@@ -3,12 +3,13 @@ import VueRouter from "vue-router";
 import UserRegister from "./views/UserRegister.vue";
 import UserPreferences from "./views/UserPreferences.vue";
 import UserSuggestions from "./views/UserSuggestions.vue";
+import ChosenPreferences from "./views/ChosenPreferences.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/register",
+    path: "/",
     name: "Register",
     component: UserRegister,
   },
@@ -21,6 +22,11 @@ const routes = [
     path: "/suggestions",
     name: "UserSuggestions",
     component: UserSuggestions,
+  },
+  {
+    path: "/chosenPreferences",
+    name: "ChosenPreferences",
+    component: ChosenPreferences,
   },
 ];
 
