@@ -17,7 +17,7 @@ jobs:
         id: buildx
         uses: docker/setup-buildx-action@v2
       - name: Login to Docker Hub
-        run: echo "${{ secrets.ARTIFACT_REGISTRY_TOKEN }}" | docker login -u _json_key_b64 --password-stdin https://europe-west3-docker.pkg.dev
+        run: echo "${{ secrets.ARTIFACT_REGISTRY_TOKEN }}" | docker login -u _json_key --password-stdin https://europe-west3-docker.pkg.dev
       - name: Build and push image
         run: |
           docker buildx build \
