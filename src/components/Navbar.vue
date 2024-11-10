@@ -20,7 +20,9 @@
     </div>
     <nav class="navbar flex justify-between items-center px-4 py-2">
       <div>
-        <img src="../assets/icons/user.svg" />
+        <router-link to="/">
+          <img src="../assets/icons/user.svg" />
+        </router-link>
       </div>
       <div v-show="!hideSearch">
         <button @click="toggleSearch">
@@ -28,7 +30,9 @@
         </button>
       </div>
       <div>
-        <img src="../assets/icons/bar.svg" />
+        <router-link to="/chosenPreferences">
+          <img src="../assets/icons/bar.svg" />
+        </router-link>
       </div>
     </nav>
   </div>
@@ -61,6 +65,7 @@ export default {
 <style scoped>
 .navbar {
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
 }
 
 img {

@@ -3,18 +3,18 @@
     <template v-if="activeIdx > -1">
       <div
         v-for="(item, idx) in preparedPreferences"
-        :class="[
-          'preferenceWrapper absolute',
-          activeIdx !== idx ? 'hide' : '',
-          textOverImage ? 'textOverImage' : '',
-        ]"
+        :class="['preferenceWrapper absolute', activeIdx !== idx ? 'hide' : '']"
         v-show="idx <= activeIdx"
       >
         <div class="p-2 h-full">
           <div class="preference h-full">
             <img :src="item.image" class="rounded-lg baseImage" />
             <div
-              :class="{ 'infoWrapper rounded-lg': true, open: showMoreOpen }"
+              :class="{
+                'infoWrapper rounded-lg': true,
+                textOverImage: textOverImage,
+                open: showMoreOpen,
+              }"
             >
               <div class="info relative">
                 <div class="title">
@@ -99,8 +99,12 @@ export default {
   },
   computed: {
     preparedPreferences() {
-      console.log("pred", this.preferences);
       return [...this.preferences].reverse();
+    },
+  },
+  watch: {
+    preferences(val) {
+      this.activeIdx = val.length - 1;
     },
   },
   created() {
@@ -114,6 +118,7 @@ export default {
       if (this.activeIdx < -1) {
         this.activeIdx = -1;
       }
+      this.showMoreOpen = false;
       setTimeout(() => {
         this.sliding = false;
       }, 300);
@@ -147,7 +152,7 @@ export default {
   position: relative;
 }
 
-.textOverImage .infoWrapper {
+.textOverImage.infoWrapper {
   height: 100%;
   display: flex;
   justify-content: left;
@@ -158,6 +163,10 @@ export default {
   font-weight: 500;
   background: #00000061;
   color: white;
+
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
 }
 .infoWrapper {
   position: absolute;
@@ -175,6 +184,12 @@ export default {
   display: grid;
   align-items: end;
   grid-template-columns: 1fr auto;
+}
+.textOverImage .info {
+  text-align: center;
+}
+.textOverImage .title {
+  font-size: 32px;
 }
 .infoWrapper.open {
   background: linear-gradient(
