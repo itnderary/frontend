@@ -6,8 +6,8 @@
 
 `Itnderary frontend` is a React app and you can start it as follows:
 
-1. `npm install` will install all dependencies
-2. `npm run serve` will start the dev server with hot reloading enabled.
+1. `yarn install` will install all dependencies
+2. `yarn serve` will start the dev server with hot reloading enabled.
 3. Use your favourite IDE to contribute!
 
 ### Back-end
