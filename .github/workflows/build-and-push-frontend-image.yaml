@@ -2,7 +2,7 @@ name: build-and-push-image
 on:
   push:
     branches-ignore:
-      - main
+      - master
 jobs:
   buildx-frontend:
     runs-on: ubuntu-latest
