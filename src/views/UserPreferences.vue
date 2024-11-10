@@ -1,8 +1,15 @@
 <template>
   <div class="h-full preferencesPage">
+    <button
+      class="continueButton px-2 py-1 absolute rounded-md"
+      @click="toToPreferences"
+    >
+      Continue
+      <img src="../assets/icons/arrow-left.svg" class="arrow" />
+    </button>
     <preference-swiper
       :preferences="preferences"
-      :textOverImages="true"
+      :textOverImage="true"
     ></preference-swiper>
     <navbar :hideSearch="true"></navbar>
   </div>
@@ -13,45 +20,26 @@ import PreferenceSwiper from "@/components/PreferenceSwiper";
 import Navbar from "@/components/Navbar";
 
 export default {
-  data: () => ({}),
-  props: {},
+  data: () => ({
+    preferences: [],
+  }),
   components: {
     PreferenceSwiper,
     Navbar,
   },
-  computed: {
-    preferences() {
-      return [
-        {
-          name: "Museums",
-          image:
-            "https://www.mqw.at/fileadmin/_processed_/b/3/csm_RodrigoBraga_Ausstellungsansicht_29baa32a2c.jpg",
-        },
-        {
-          name: "Winter Sports",
-          image:
-            "https://www.skiweekends.com/assets/uploads/image_library/show/1664800087_schladming-ski-breaks.jpeg",
-        },
-        {
-          name: "Idyllic Towns",
-          image: "https://ichef.bbci.co.uk/images/ic/1920xn/p08fq4z7.jpg.webp",
-        },
-        {
-          name: "Hiking",
-          image:
-            "https://i.natgeofe.com/n/7afda449-1780-4938-8342-2abe32326c86/Montblanchike.jpg",
-        },
-        {
-          name: "Mountain Views",
-          image:
-            "https://d2exd72xrrp1s7.cloudfront.net/www/000/1k1/1t/1twn23w0a61br67gbdcnec5rs27qj3t07-uhi1133005/0?width=3072&height=2304&crop=false&q=70",
-        },
-        {
-          name: "Austrian Beer",
-          image:
-            "http://wevemadeahugemistake.com/wp-content/uploads/2015/06/IMG_5661.jpg",
-        },
-      ];
+  created() {
+    this.getPreferences();
+  },
+  methods: {
+    getPreferences() {
+      fetch("https://itnderary.bleggbeard.io/api/moods")
+        .then((res) => res.json())
+        .then((res) => {
+          this.preferences = res;
+        });
+    },
+    toToPreferences() {
+      this.$router.push("/suggestions");
     },
   },
 };
@@ -61,5 +49,20 @@ export default {
 .preferencesPage {
   display: grid;
   grid-template-rows: 1fr auto;
+}
+
+.continueButton {
+  background-color: #f79f1f;
+  z-index: 1;
+  right: 16px;
+  top: 24px;
+  display: flex;
+  gap: 6px;
+}
+
+.arrow {
+  transform: rotate(180deg);
+  width: 22px;
+  height: 22px;
 }
 </style>

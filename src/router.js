@@ -8,13 +8,13 @@ import ChosenPreferences from "./views/ChosenPreferences.vue";
 Vue.use(VueRouter);
 
 const routes = [
+  // {
+  //   path: "/",
+  //   name: "Register",
+  //   component: UserRegister,
+  // },
   {
     path: "/",
-    name: "Register",
-    component: UserRegister,
-  },
-  {
-    path: "/preferences",
     name: "UserPreferences",
     component: UserPreferences,
   },

@@ -65,7 +65,7 @@ export default {
 <style scoped>
 .navbar {
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #d3d3d3;
+  background-color: #f0f0f0;
 }
 
 img {

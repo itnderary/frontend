@@ -44,7 +44,7 @@
             {{ preference.description }}
           </div>
           <button class="showMoreButton">
-            {{ showMoreOpen ? "Show less" : "Show more" }}
+            {{ "Show more" }}
           </button>
           <div v-if="preference.recommondations" class="usersRecommondations">
             <div class="font-semibold">Other users also like</div>
