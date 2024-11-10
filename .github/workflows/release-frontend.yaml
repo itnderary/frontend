@@ -1,7 +1,7 @@
-name: build-and-push-image
+name: build-and-release-frontend
 on:
   push:
-    branches-ignore:
+    branches:
       - main
 jobs:
   buildx-frontend:
