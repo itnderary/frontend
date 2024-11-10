@@ -1,0 +1,35 @@
+name: build-and-push-image
+on:
+  push:
+    branches-ignore:
+      - main
+jobs:
+  buildx-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+        with:
+          platforms: arm64
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.ARTIFACT_REGISTRY_TOKEN_B64 }}" | base64 -d | docker login -u _json_key --password-stdin https://europe-west3-docker.pkg.dev
+      - name: Build and push image
+        run: |
+          docker buildx build \
+            --tag europe-west3-docker.pkg.dev/itnderary/frontend/v2:latest \
+            --push --platform linux/amd64,linux/arm64 .
+      - name: Login to GCP
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: "${{ secrets.ARTIFACT_REGISTRY_TOKEN }}"
+      - name: Setup Google Cloud SDK
+        uses: "google-github-actions/setup-gcloud@v2"
+        with:
+          version: ">= 476.0.0"
+      - name: Deploy image
+        run: gcloud run deploy frontend-service --image=europe-west3-docker.pkg.dev/itnderary/frontend/v2:latest --region europe-west3 --project itnderary
