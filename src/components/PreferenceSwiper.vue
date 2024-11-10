@@ -3,7 +3,11 @@
     <template v-if="activeIdx > -1">
       <div
         v-for="(item, idx) in preparedPreferences"
-        :class="['preferenceWrapper absolute', activeIdx !== idx ? 'hide' : '']"
+        :class="[
+          'preferenceWrapper absolute',
+          slidingDirection,
+          activeIdx === idx && sliding ? 'sliding' : '',
+        ]"
         v-show="idx <= activeIdx"
       >
         <div class="p-2 h-full">
@@ -46,14 +50,14 @@
         <div class="actionButtons flex justify-center">
           <button
             class="actionButton text-white bg-rose-600 color-white p-2"
-            @click="goToNext"
+            @click="goToNext('left')"
             v-tooltip="'Dislike'"
           >
             <img src="../assets/icons/cross.svg" alt="Logo" />
           </button>
           <button
             class="actionButton small text-white bg-blue-700 color-white p-2"
-            @click="goToNext"
+            @click="goToNext('top')"
             v-tooltip="'Super like'"
           >
             <img src="../assets/icons/star.svg" alt="Logo" />
@@ -83,6 +87,7 @@ export default {
     sliding: false,
     activeIdx: 0,
     showMoreOpen: false,
+    slidingDirection: "right",
   }),
   props: {
     preferences: {
@@ -109,20 +114,20 @@ export default {
   },
   created() {
     this.activeIdx = this.preferences.length - 1;
-    console.log("asdf");
   },
   methods: {
-    goToNext() {
+    goToNext(direction = "right") {
       this.sliding = true;
+      this.slidingDirection = direction;
 
-      this.activeIdx -= 1;
-      if (this.activeIdx < -1) {
-        this.activeIdx = -1;
-      }
       this.showMoreOpen = false;
       setTimeout(() => {
         this.sliding = false;
-      }, 300);
+        this.activeIdx -= 1;
+        if (this.activeIdx < -1) {
+          this.activeIdx = -1;
+        }
+      }, 700);
     },
     toggleShowMore() {
       this.showMoreOpen = !this.showMoreOpen;
@@ -141,10 +146,26 @@ export default {
   width: 100%;
   display: grid;
   grid-template-rows: 1fr 55px;
-
-  /* transform-origin: bottom right;
-  transform: rotate(45deg) translate(20px, 0); */
+  opacity: 1;
 }
+.sliding {
+  transform-origin: bottom right;
+  transform: rotate(45deg) translate(40px, 0);
+  opacity: 0;
+
+  transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+}
+
+.sliding.left {
+  transform-origin: bottom left;
+  transform: rotate(-45deg) translate(20px, 0);
+}
+
+.sliding.top {
+  transform-origin: bottom center;
+  transform: rotate(20deg) translate(0, -100%);
+}
+
 .preferenceWrapper.hide {
   opacity: 0;
 }

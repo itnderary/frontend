@@ -46,24 +46,24 @@
           <button class="showMoreButton">
             {{ "Show more" }}
           </button>
-          <div v-if="preference.recommondations" class="usersRecommondations">
+          <div v-if="preference.recommendations" class="usersRecommondations">
             <div class="font-semibold">Other users also like</div>
             <ul class="mt-2">
               <li
-                v-for="recommondation in preference.recommondations"
+                v-for="recommendation in preference.recommendations"
                 class="grid recommondationItem"
               >
                 <img
-                  :src="recommondation.image"
+                  :src="recommendation.image"
                   class="recommondationImage rounded-md"
                 />
                 <div class="">
-                  <span class="">{{ recommondation.name }}</span>
+                  <span class="">{{ recommendation.name }}</span>
                   <div
-                    v-if="recommondation.tags && recommondation.tags.length > 0"
+                    v-if="recommendation.tags && recommendation.tags.length > 0"
                     class="flex tagList text-sm"
                   >
-                    <tag v-for="tag in recommondation.tags">{{ tag }}</tag>
+                    <tag v-for="tag in recommendation.tags">{{ tag }}</tag>
                   </div>
                 </div>
                 <img src="../assets/icons/chevron-right.svg" class="plus" />
